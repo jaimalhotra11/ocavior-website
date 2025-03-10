@@ -1,6 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, MapPin, DollarSign, Users, Clock, Heart, Coffee, Laptop, Zap } from 'lucide-react';
+import { 
+  Briefcase, 
+  MapPin, 
+  DollarSign, 
+  Users, 
+  Clock, 
+  Heart, 
+  Coffee, 
+  Laptop, 
+  Zap,
+  Mail,
+  ArrowRight
+} from 'lucide-react';
 
 const openPositions = [
   {
@@ -42,13 +54,13 @@ const benefits = [
 
 const CareersPage: React.FC = () => {
   return (
-    <main>
+    <main className="bg-white dark:bg-dark-900">
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900 dark:from-dark-950 dark:via-dark-900 dark:to-dark-950 relative overflow-hidden">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,rgba(12,142,231,0.8),rgba(124,51,245,0.8))]"></div>
-        <div className="container relative z-10">
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="heading-xl text-white mb-6">Join Our <span className="gradient-text">Team</span></h1>
+            <h1 className="text-5xl font-bold text-white mb-6">Join Our <span className="text-blue-500">Team</span></h1>
             <p className="text-xl text-gray-300 mb-8">
               Build your career with us and shape the future of digital innovation
             </p>
@@ -57,11 +69,11 @@ const CareersPage: React.FC = () => {
       </section>
 
       {/* Why Join Us Section */}
-      <section className="section bg-white dark:bg-dark-900">
-        <div className="container">
+      <section className="py-20">
+        <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="heading-lg mb-4">Why Join <span className="gradient-text">Ocavior</span></h2>
-            <p className="text-lg text-dark-600 dark:text-dark-200">
+            <h2 className="text-4xl font-bold mb-4">Why Join <span className="text-blue-500">Ocavior</span></h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300">
               We're building a team of passionate professionals who are excited about creating exceptional digital experiences. Here's why you should join us:
             </p>
           </div>
@@ -73,13 +85,13 @@ const CareersPage: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white dark:bg-dark-700 rounded-xl p-6 shadow-md"
+                className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md"
               >
-                <div className="w-12 h-12 rounded-full bg-primary-50 dark:bg-dark-600 flex items-center justify-center mb-4">
-                  <benefit.icon className="w-6 h-6 text-primary-600 dark:text-primary-400" />
+                <div className="w-12 h-12 rounded-full bg-blue-50 dark:bg-gray-700 flex items-center justify-center mb-4">
+                  <benefit.icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">{benefit.title}</h3>
-                <p className="text-dark-600 dark:text-dark-300">{benefit.desc}</p>
+                <p className="text-gray-600 dark:text-gray-300">{benefit.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -87,11 +99,11 @@ const CareersPage: React.FC = () => {
       </section>
 
       {/* Open Positions Section */}
-      <section className="section bg-gray-50 dark:bg-dark-800">
-        <div className="container">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
+        <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="heading-lg mb-4">Open <span className="gradient-text">Positions</span></h2>
-            <p className="text-lg text-dark-600 dark:text-dark-200">
+            <h2 className="text-4xl font-bold mb-4">Open <span className="text-blue-500">Positions</span></h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300">
               Explore our current job openings and find the perfect role for your skills and passion.
             </p>
           </div>
@@ -103,9 +115,9 @@ const CareersPage: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white dark:bg-dark-700 rounded-xl overflow-hidden shadow-md"
+                className="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md"
               >
-                <div className="bg-gradient-to-r from-primary-500 to-secondary-500 p-6 text-white">
+                <div className="bg-gradient-to-r from-blue-500 to-purple-500 p-6 text-white">
                   <h3 className="text-xl font-bold mb-2">{position.title}</h3>
                   <div className="flex items-center">
                     <Briefcase className="w-4 h-4 mr-2" />
@@ -117,25 +129,25 @@ const CareersPage: React.FC = () => {
                 <div className="p-6">
                   <div className="mb-4">
                     <div className="flex items-center mb-2">
-                      <DollarSign className="w-5 h-5 text-primary-500 mr-2" />
+                      <DollarSign className="w-5 h-5 text-blue-500 mr-2" />
                       <span className="font-semibold">Salary Range:</span>
                     </div>
-                    <p className="text-dark-600 dark:text-dark-300 ml-7">{position.salary}</p>
+                    <p className="text-gray-600 dark:text-gray-300 ml-7">{position.salary}</p>
                   </div>
                   
                   <div>
                     <div className="flex items-center mb-2">
-                      <Users className="w-5 h-5 text-primary-500 mr-2" />
+                      <Users className="w-5 h-5 text-blue-500 mr-2" />
                       <span className="font-semibold">Requirements:</span>
                     </div>
-                    <ul className="list-disc list-inside text-dark-600 dark:text-dark-300 ml-7 space-y-1">
+                    <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 ml-7 space-y-1">
                       {position.requirements.map((req, idx) => (
                         <li key={idx}>{req}</li>
                       ))}
                     </ul>
                   </div>
                   
-                  <button className="mt-6 btn btn-primary w-full py-3 rounded-md">
+                  <button className="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-md transition-colors">
                     Apply Now
                   </button>
                 </div>
@@ -144,10 +156,13 @@ const CareersPage: React.FC = () => {
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-lg text-dark-600 dark:text-dark-200 mb-4">
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-4">
               Don't see a position that matches your skills?
             </p>
-            <a href="mailto:careers@ocavior.com" className="btn btn-outline border-primary-500 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-dark-700 px-6 py-3 rounded-md inline-flex items-center">
+            <a 
+              href="mailto:careers@ocavior.com" 
+              className="inline-flex items-center px-6 py-3 border-2 border-blue-500 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-700 rounded-md transition-colors font-medium"
+            >
               Send Us Your Resume
               <Mail className="ml-2 w-5 h-5" />
             </a>
@@ -156,49 +171,49 @@ const CareersPage: React.FC = () => {
       </section>
 
       {/* Company Culture Section */}
-      <section className="section bg-white dark:bg-dark-900">
-        <div className="container">
+      <section className="py-20">
+        <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="heading-lg mb-6">Our <span className="gradient-text">Culture</span></h2>
-              <p className="text-lg text-dark-600 dark:text-dark-200 mb-6">
+              <h2 className="text-4xl font-bold mb-6">Our <span className="text-blue-500">Culture</span></h2>
+              <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
                 At Ocavior, we foster a culture of innovation, collaboration, and continuous learning. We believe in empowering our team members to take ownership of their work and make a meaningful impact.
               </p>
-              <p className="text-lg text-dark-600 dark:text-dark-200 mb-6">
+              <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
                 Our values guide everything we do:
               </p>
               <ul className="space-y-4">
                 <li className="flex items-start">
-                  <div className="w-8 h-8 rounded-full bg-primary-50 dark:bg-dark-600 flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
-                    <span className="text-primary-600 dark:text-primary-400 font-bold">1</span>
+                  <div className="w-8 h-8 rounded-full bg-blue-50 dark:bg-gray-700 flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
+                    <span className="text-blue-600 dark:text-blue-400 font-bold">1</span>
                   </div>
                   <div>
                     <h3 className="text-lg font-bold mb-1">Excellence</h3>
-                    <p className="text-dark-600 dark:text-dark-300">We strive for excellence in everything we do, delivering exceptional results for our clients and creating opportunities for our team.</p>
+                    <p className="text-gray-600 dark:text-gray-300">We strive for excellence in everything we do, delivering exceptional results for our clients and creating opportunities for our team.</p>
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <div className="w-8 h-8 rounded-full bg-primary-50 dark:bg-dark-600 flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
-                    <span className="text-primary-600 dark:text-primary-400 font-bold">2</span>
+                  <div className="w-8 h-8 rounded-full bg-blue-50 dark:bg-gray-700 flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
+                    <span className="text-blue-600 dark:text-blue-400 font-bold">2</span>
                   </div>
                   <div>
                     <h3 className="text-lg font-bold mb-1">Innovation</h3>
-                    <p className="text-dark-600 dark:text-dark-300">We embrace creativity and forward-thinking, constantly exploring new ideas and approaches to solve complex challenges.</p>
+                    <p className="text-gray-600 dark:text-gray-300">We embrace creativity and forward-thinking, constantly exploring new ideas and approaches to solve complex challenges.</p>
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <div className="w-8 h-8 rounded-full bg-primary-50 dark:bg-dark-600 flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
-                    <span className="text-primary-600 dark:text-primary-400 font-bold">3</span>
+                  <div className="w-8 h-8 rounded-full bg-blue-50 dark:bg-gray-700 flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
+                    <span className="text-blue-600 dark:text-blue-400 font-bold">3</span>
                   </div>
                   <div>
                     <h3 className="text-lg font-bold mb-1">Collaboration</h3>
-                    <p className="text-dark-600 dark:text-dark-300">We believe in the power of teamwork, fostering an inclusive environment where diverse perspectives are valued and respected.</p>
+                    <p className="text-gray-600 dark:text-gray-300">We believe in the power of teamwork, fostering an inclusive environment where diverse perspectives are valued and respected.</p>
                   </div>
                 </li>
               </ul>
             </div>
             <div className="relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl blur opacity-30"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur opacity-30"></div>
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
                 alt="Ocavior team collaboration"
@@ -210,18 +225,18 @@ const CareersPage: React.FC = () => {
       </section>
 
       {/* Application Process Section */}
-      <section className="section bg-gray-50 dark:bg-dark-800">
-        <div className="container">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
+        <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="heading-lg mb-4">Application <span className="gradient-text">Process</span></h2>
-            <p className="text-lg text-dark-600 dark:text-dark-200">
+            <h2 className="text-4xl font-bold mb-4">Application <span className="text-blue-500">Process</span></h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300">
               Our hiring process is designed to be transparent, efficient, and respectful of your time. Here's what you can expect:
             </p>
           </div>
 
           <div className="relative max-w-4xl mx-auto">
             {/* Process line */}
-            <div className="absolute left-16 top-0 bottom-0 w-1 bg-gradient-to-b from-primary-500 to-secondary-500 hidden md:block"></div>
+            <div className="absolute left-16 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-purple-500 hidden md:block"></div>
 
             <div className="space-y-12">
               {[
@@ -253,12 +268,12 @@ const CareersPage: React.FC = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="flex items-start"
                 >
-                  <div className="w-12 h-12 rounded-full bg-white dark:bg-dark-700 border-4 border-primary-500 z-10 flex items-center justify-center mr-8 flex-shrink-0">
-                    <span className="text-primary-600 dark:text-primary-400 font-bold">{index + 1}</span>
+                  <div className="w-12 h-12 rounded-full bg-white dark:bg-gray-700 border-4 border-blue-500 z-10 flex items-center justify-center mr-8 flex-shrink-0">
+                    <span className="text-blue-600 dark:text-blue-400 font-bold">{index + 1}</span>
                   </div>
-                  <div className="bg-white dark:bg-dark-700 rounded-xl p-6 shadow-md flex-grow">
+                  <div className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md flex-grow">
                     <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                    <p className="text-dark-600 dark:text-dark-300">{step.description}</p>
+                    <p className="text-gray-600 dark:text-gray-300">{step.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -268,19 +283,19 @@ const CareersPage: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section bg-gradient-to-br from-primary-900 to-secondary-900 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-blue-900 to-purple-900 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMSI+PHBhdGggZD0iTTM2IDM0djZoNnYtNmgtNnptMC0zMHY2aDZ2LTZoLTZ6TTYgNHY2aDZ2LTZINnptMCAzMHY2aDZ2LTZINnoiLz48L2c+PC9nPjwvc3ZnPg==')]"></div>
-        <div className="container relative z-10 text-center">
-          <h2 className="heading-lg text-white mb-6">Ready to Join Our Team?</h2>
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <h2 className="text-4xl font-bold text-white mb-6">Ready to Join Our Team?</h2>
           <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
             Explore our open positions and take the next step in your career journey with Ocavior.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#" className="btn bg-white text-primary-700 hover:bg-gray-100 px-6 py-3 rounded-md inline-flex items-center">
+            <a href="#" className="inline-flex items-center px-6 py-3 bg-white text-blue-700 hover:bg-gray-100 rounded-md transition-colors font-medium">
               View Open Positions
               <ArrowRight className="ml-2 w-5 h-5" />
             </a>
-            <a href="mailto:careers@ocavior.com" className="btn btn-outline border-white text-white hover:bg-white/10 px-6 py-3 rounded-md inline-flex items-center">
+            <a href="mailto:careers@ocavior.com" className="inline-flex items-center px-6 py-3 border-2 border-white text-white hover:bg-white/10 rounded-md transition-colors font-medium">
               Contact Recruiting Team
               <Mail className="ml-2 w-5 h-5" />
             </a>
