@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Sun, Moon, Zap } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
+import logo from '../assets/images/logo.jpg';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,14 +41,10 @@ const Navbar: React.FC = () => {
       }`}
     >
       <div className="container flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2">
-          <Zap className={`h-8 w-8 ${isScrolled ? 'text-primary-600 dark:text-primary-500' : 'text-white'}`} />
-          <span className={`text-xl font-bold font-display ${isScrolled ? 'text-dark-900 dark:text-white' : 'text-white'}`}>
-            Ocavior
-          </span>
-        </Link>
-
+  {/* Logo */}
+  <Link to="/" className="flex items-center space-x-2">
+    <img src='../assets/images/logo.jpg' alt="Logo" className="h-16 w-16" />
+  </Link>
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
