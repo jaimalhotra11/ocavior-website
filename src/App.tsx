@@ -1,4 +1,5 @@
 import React from 'react';
+import ApplyNowPage from './pages/ApplyNowPage';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import AdminPanel from './pages/AdminPanel';
@@ -31,6 +32,7 @@ function App() {
           <Route path="/terms-of-service" element={<TermsOfServicePage />} />
           <Route path="/sitemap" element={<SitemapPage />} />
           <Route path="/careers" element={<CareersPage />} />
+          <Route path="/apply" element={<ApplyNowPage />} />
           
           <Route path="/admin" element={<AdminPanel />} />
           <Route path="/blog/:blogId" element={<BlogPage />} />

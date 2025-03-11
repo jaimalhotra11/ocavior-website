@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   Briefcase, 
@@ -115,7 +116,7 @@ const CareersPage: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md"
+                className="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md flex flex-col"
               >
                 <div className="bg-gradient-to-r from-blue-500 to-purple-500 p-6 text-white">
                   <h3 className="text-xl font-bold mb-2">{position.title}</h3>
@@ -126,8 +127,8 @@ const CareersPage: React.FC = () => {
                     <span>{position.location}</span>
                   </div>
                 </div>
-                <div className="p-6">
-                  <div className="mb-4">
+                <div className="p-6 flex-grow flex flex-col">
+                  <div className="mb-6">
                     <div className="flex items-center mb-2">
                       <DollarSign className="w-5 h-5 text-blue-500 mr-2" />
                       <span className="font-semibold">Salary Range:</span>
@@ -135,7 +136,7 @@ const CareersPage: React.FC = () => {
                     <p className="text-gray-600 dark:text-gray-300 ml-7">{position.salary}</p>
                   </div>
                   
-                  <div>
+                  <div className="mb-8">
                     <div className="flex items-center mb-2">
                       <Users className="w-5 h-5 text-blue-500 mr-2" />
                       <span className="font-semibold">Requirements:</span>
@@ -147,9 +148,14 @@ const CareersPage: React.FC = () => {
                     </ul>
                   </div>
                   
-                  <button className="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-md transition-colors">
-                    Apply Now
-                  </button>
+                  <div className="mt-auto">
+                    <Link 
+                      to="/apply" 
+                      className="block w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-md transition-colors text-center"
+                    >
+                      Apply Now
+                    </Link>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -235,7 +241,6 @@ const CareersPage: React.FC = () => {
           </div>
 
           <div className="relative max-w-4xl mx-auto">
-            {/* Process line */}
             <div className="absolute left-16 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-purple-500 hidden md:block"></div>
 
             <div className="space-y-12">
