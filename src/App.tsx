@@ -1,5 +1,7 @@
 import React from 'react';
 import ApplyNowPage from './pages/ApplyNowPage';
+import Chatbot from './components/Chatbot';
+import ChatbotPage from './pages/ChatbotPage';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import AdminPanel from './pages/AdminPanel';
@@ -35,11 +37,13 @@ function App() {
           <Route path="/apply" element={<ApplyNowPage />} />
           
           <Route path="/admin" element={<AdminPanel />} />
+          <Route path="/chatbot" element={<ChatbotPage />} />
           <Route path="/blog/:blogId" element={<BlogPage />} />
           <Route path="/case-studies/:caseId" element={<CaseStudiesPage />} />
           <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
         </Routes>
       </div>
+      <Chatbot />
       <Footer />
     </div>
   );
