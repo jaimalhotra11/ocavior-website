@@ -61,6 +61,23 @@ const Chatbot: React.FC = () => {
   const handleUserInfoInput = () => {
     if (!inputText.trim()) return;
 
+    if (currentStep === 'email' && !validateEmail(inputText)) {
+      // If it's not a valid email, show the greeting message and clear the input
+      const userMessage: Message = {
+        text: inputText,
+        sender: 'user',
+        timestamp: new Date()
+      };
+      const botMessage: Message = {
+        text: "👋 Hi! I'm your digital marketing assistant. To get started, please enter your email address so I can send you helpful resources.",
+        sender: 'bot',
+        timestamp: new Date()
+      };
+      setMessages([userMessage, botMessage]);
+      setInputText('');
+      return;
+    }
+
     const userMessage: Message = {
       text: inputText,
       sender: 'user',
@@ -70,15 +87,6 @@ const Chatbot: React.FC = () => {
 
     switch (currentStep) {
       case 'email':
-        if (!validateEmail(inputText)) {
-          const botMessage: Message = {
-            text: "I need a valid email address to continue. Please enter an email in the format: example@domain.com",
-            sender: 'bot',
-            timestamp: new Date()
-          };
-          setMessages(prev => [...prev, botMessage]);
-          return;
-        }
         setUserInfo(prev => ({ ...prev, email: inputText } as UserInfo));
         setCurrentStep('phone');
         setMessages(prev => [
