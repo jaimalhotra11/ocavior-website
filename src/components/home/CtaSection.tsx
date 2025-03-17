@@ -74,31 +74,31 @@ const CtaSection: React.FC = () => {
             initial={{ opacity: 0, x: 20 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white dark:bg-dark-800 rounded-xl shadow-xl p-8"
+            className="bg-black rounded-xl shadow-xl p-8"
           >
-            <h3 className="text-2xl font-bold mb-6">Get a Free Consultation</h3>
+            <h3 className="text-2xl font-bold mb-6 text-white">Get a Free Consultation</h3>
             <form className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-dark-600 dark:text-dark-300 mb-1">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
                     Full Name
                   </label>
                   <input
                     type="text"
                     id="name"
-                    className="w-full px-4 py-3 rounded-md border border-gray-300 dark:border-dark-600 bg-white dark:bg-dark-700 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                    className="w-full px-4 py-3 rounded-md border border-gray-700 bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-primary-500"
                     placeholder="John Doe"
                     required
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-dark-600 dark:text-dark-300 mb-1">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
                     Email Address
                   </label>
                   <input
                     type="email"
                     id="email"
-                    className="w-full px-4 py-3 rounded-md border border-gray-300 dark:border-dark-600 bg-white dark:bg-dark-700 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                    className="w-full px-4 py-3 rounded-md border border-gray-700 bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-primary-500"
                     placeholder="john@example.com"
                     required
                   />
@@ -106,24 +106,24 @@ const CtaSection: React.FC = () => {
               </div>
 
               <div>
-                <label htmlFor="company" className="block text-sm font-medium text-dark-600 dark:text-dark-300 mb-1">
+                <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-1">
                   Company Name
                 </label>
                 <input
                   type="text"
                   id="company"
-                  className="w-full px-4 py-3 rounded-md border border-gray-300 dark:border-dark-600 bg-white dark:bg-dark-700 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="w-full px-4 py-3 rounded-md border border-gray-700 bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-primary-500"
                   placeholder="Your Company"
                 />
               </div>
 
               <div>
-                <label htmlFor="service" className="block text-sm font-medium text-dark-600 dark:text-dark-300 mb-1">
+                <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-1">
                   Service You're Interested In
                 </label>
                 <select
                   id="service"
-                  className="w-full px-4 py-3 rounded-md border border-gray-300 dark:border-dark-600 bg-white dark:bg-dark-700 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="w-full px-4 py-3 rounded-md border border-gray-700 bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-primary-500"
                   required
                 >
                   <option value="">Select a service</option>
@@ -137,12 +137,12 @@ const CtaSection: React.FC = () => {
               </div>
 
               <div>
-                <label htmlFor="budget" className="block text-sm font-medium text-dark-600 dark:text-dark-300 mb-1">
+                <label htmlFor="budget" className="block text-sm font-medium text-gray-300 mb-1">
                   Monthly Budget
                 </label>
                 <select
                   id="budget"
-                  className="w-full px-4 py-3 rounded-md border border-gray-300 dark:border-dark-600 bg-white dark:bg-dark-700 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="w-full px-4 py-3 rounded-md border border-gray-700 bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-primary-500"
                 >
                   <option value="">Select budget range</option>
                   <option value="50000-100000">₹50,000 - ₹1,00,000</option>
@@ -153,28 +153,28 @@ const CtaSection: React.FC = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-dark-600 dark:text-dark-300 mb-1">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
                   Tell us about your project
                 </label>
                 <textarea
                   id="message"
                   rows={4}
-                  className="w-full px-4 py-3 rounded-md border border-gray-300 dark:border-dark-600 bg-white dark:bg-dark-700 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="w-full px-4 py-3 rounded-md border border-gray-700 bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-primary-500"
                   placeholder="Share your goals and challenges..."
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full btn btn-primary py-3 rounded-md font-medium flex items-center justify-center"
+                className="w-full bg-primary-600 text-white py-3 rounded-md font-medium flex items-center justify-center hover:bg-primary-700 transition-colors"
               >
                 Let's Talk
                 <ArrowRight className="ml-2 w-5 h-5" />
               </button>
 
-              <p className="text-xs text-dark-500 dark:text-dark-400 text-center">
+              <p className="text-xs text-gray-400 text-center">
                 By submitting this form, you agree to our{' '}
-                <Link to="/privacy-policy" className="text-primary-600 dark:text-primary-400 hover:underline">
+                <Link to="/privacy-policy" className="text-primary-400 hover:underline">
                   Privacy Policy
                 </Link>
                 .
