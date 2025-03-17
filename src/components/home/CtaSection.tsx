@@ -56,17 +56,9 @@ const CtaSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex items-center">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4">
-                  <MessageSquare className="w-5 h-5 text-primary-300" />
-                </div>
-                <div>
-                  <p className="text-sm text-gray-300">Live Chat</p>
-                  <a href="#" className="text-white hover:text-primary-300 transition-colors">
-                    Start a conversation
-                  </a>
-                </div>
-              </div>
+             
+                
+              
             </div>
           </motion.div>
 

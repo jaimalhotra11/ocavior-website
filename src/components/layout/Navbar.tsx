@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Sun, Moon, Zap } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
-import logo from '../assets/images/logo.jpg';
+import logo from './assets/images/logo.jpg';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
       <div className="container flex items-center justify-between">
   {/* Logo */}
   <Link to="/" className="flex items-center space-x-2">
-    <img src='../assets/images/logo.jpg' alt="Logo" className="h-16 w-16" />
+    <img src='./assets/images/logo.jpg' alt="Logo" className="h-16 w-16" />
   </Link>
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
