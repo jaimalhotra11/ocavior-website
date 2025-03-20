@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Send, Bot, ArrowRight } from 'lucide-react';
+import { MessageCircle, X, Send, Bot, ArrowRight, Code, Smartphone, Globe, Cloud, Building2, Search } from 'lucide-react';
 
 interface Message {
   text: string;
@@ -13,37 +13,803 @@ interface UserInfo {
   name: string;
 }
 
+// Enhanced predefined responses with more detailed information
 const predefinedResponses = {
-  services: "Let me outline our comprehensive digital marketing services:\n\n• SEO Optimization\n  - Boost your search rankings\n  - Local SEO optimization\n  - Technical SEO audits\n  - Keyword research & strategy\n\n• Social Media Marketing\n  - Platform-specific strategies\n  - Community management\n  - Paid social campaigns\n  - Influencer partnerships\n\n• Content Marketing\n  - Blog strategy & creation\n  - Video content production\n  - Infographic design\n  - Email newsletters\n\n• PPC Advertising\n  - Google Ads management\n  - Display advertising\n  - Retargeting campaigns\n  - Ad copy optimization\n\n• Analytics & Reporting\n  - Real-time dashboards\n  - ROI tracking\n  - Competitor analysis\n  - Monthly performance reports\n\nWould you like to learn more about any specific service?",
-  
-  pricing: "I'll break down our pricing packages for you:\n\n• Starter Package: $750/month\n  - Social media management (2 platforms)\n  - Basic SEO optimization\n  - Monthly content creation (2 blog posts)\n  - Monthly performance reports\n  - Email support\n\n• Growth Package: $1,500/month\n  - Everything in Starter, plus:\n  - Social media management (4 platforms)\n  - Advanced SEO strategy\n  - Weekly content creation\n  - PPC campaign management\n  - Priority support\n\n• Enterprise Package: Custom pricing\n  - Full-service digital marketing\n  - Dedicated account manager\n  - Custom strategy development\n  - Daily optimization\n  - 24/7 support\n\nWould you like to schedule a consultation to discuss which package best fits your needs?",
-  
-  contact: "Here's how you can reach our team:\n\n• Customer Support\n  - Email: support@digitalmarketing.com\n  - Phone: (555) 123-4567\n  - Live Chat: Available 24/7\n\n• Business Hours\n  - Monday-Friday: 9AM-6PM EST\n  - Saturday: 10AM-4PM EST\n  - Sunday: Closed\n\n• Emergency Support\n  - Priority Line: (555) 999-8888\n  - Response time: Within 1 hour\n\n• Office Location\n  - 123 Marketing Ave\n  - Digital City, DC 10001\n\nHow would you prefer to connect with us?",
-  
-  consultation: "I'd be happy to help schedule your consultation. To ensure we make the most of our time together, please provide:\n\n1. Business Information\n   • Company name\n   • Industry\n   • Website (if applicable)\n   • Current marketing challenges\n\n2. Goals & Objectives\n   • Primary marketing goals\n   • Target audience\n   • Timeline for implementation\n\n3. Preferred Meeting Details\n   • Best date/time\n   • Meeting format (video/phone)\n   • Time zone\n\nYou can also call us directly at (555) 123-4567 for immediate scheduling.\n\nWould you like me to guide you through the scheduling process?",
-  
-  seo: "Our comprehensive SEO services include:\n\n1. Technical SEO\n   • Site architecture optimization\n   • Mobile optimization\n   • Page speed enhancement\n   • Schema markup implementation\n\n2. On-Page SEO\n   • Keyword optimization\n   • Content optimization\n   • Meta tag optimization\n   • URL structure improvement\n\n3. Off-Page SEO\n   • Link building\n   • Brand mentions\n   • Social signals\n   • Local citations\n\n4. Content Strategy\n   • Keyword research\n   • Content gap analysis\n   • Content calendar\n   • Performance tracking\n\nWould you like to learn more about any specific SEO service?",
-  
-  social: "Our social media marketing services include:\n\n1. Platform Management\n   • Strategy development\n   • Content creation\n   • Community engagement\n   • Performance tracking\n\n2. Paid Social\n   • Ad campaign management\n   • Audience targeting\n   • A/B testing\n   • ROI optimization\n\n3. Content Creation\n   • Custom graphics\n   • Video content\n   • Stories & Reels\n   • Trending content\n\n4. Analytics & Reporting\n   • Engagement metrics\n   • Audience insights\n   • Competitor analysis\n   • Monthly reports\n\nWhich aspects of social media marketing interest you most?",
-  
-  content: "Our content marketing services cover:\n\n1. Written Content\n   • Blog posts & articles\n   • Website copy\n   • Email newsletters\n   • Whitepapers\n\n2. Visual Content\n   • Infographics\n   • Videos\n   • Social media graphics\n   • Presentations\n\n3. Strategy\n   • Content calendar\n   • SEO optimization\n   • Distribution plan\n   • Performance tracking\n\n4. Analytics\n   • Engagement metrics\n   • Conversion tracking\n   • ROI analysis\n   • Monthly reporting\n\nWould you like to discuss your content needs in detail?",
-  
-  analytics: "Our analytics services provide:\n\n1. Performance Tracking\n   • Traffic analysis\n   • Conversion rates\n   • User behavior\n   • Goal completion\n\n2. Campaign Analysis\n   • ROI measurement\n   • A/B test results\n   • Campaign effectiveness\n   • Budget optimization\n\n3. Custom Reporting\n   • Weekly summaries\n   • Monthly deep dives\n   • Custom dashboards\n   • Competitive analysis\n\n4. Insights & Recommendations\n   • Data-driven insights\n   • Strategic recommendations\n   • Growth opportunities\n   • Trend analysis\n\nWhat specific metrics would you like to track?",
-  
-  faq: "Here are answers to our most common questions:\n\n1. Results Timeline\n   • Initial results: 2-3 months\n   • Significant impact: 4-6 months\n   • Long-term growth: 6+ months\n\n2. Contracts & Pricing\n   • Flexible monthly contracts\n   • No hidden fees\n   • 30-day cancellation notice\n   • Custom pricing available\n\n3. Reporting & Communication\n   • Weekly progress updates\n   • Monthly detailed reports\n   • 24/7 dashboard access\n   • Regular strategy calls\n\n4. Support & Service\n   • Dedicated account manager\n   • Priority support\n   • Regular optimization\n   • Strategy adjustments\n\nDo you have any other questions I can help with?"
+  services: `Our comprehensive technology services include:
+
+🚀 App Development
+• Native Mobile Apps
+  - iOS Development (Swift, SwiftUI)
+  - Android Development (Kotlin, Java)
+  - Performance optimization
+  - Push notifications
+  - Offline capabilities
+  - Analytics integration
+  - In-app purchases
+  - Social media integration
+
+• Cross-Platform Solutions
+  - React Native development
+  - Flutter applications
+  - Code reusability
+  - Native performance
+  - Platform-specific features
+
+• Progressive Web Apps (PWA)
+  - Offline functionality
+  - Push notifications
+  - App-like experience
+  - Cross-platform compatibility
+
+🌐 Website Development
+• Frontend Development
+  - React.js applications
+  - Vue.js solutions
+  - Angular platforms
+  - Responsive design
+  - Modern UI/UX
+  - Performance optimization
+
+• Backend Development
+  - Node.js/Express
+  - Python/Django
+  - PHP/Laravel
+  - Database design
+  - API development
+  - Security implementation
+
+• E-commerce Solutions
+  - Custom e-commerce platforms
+  - Shopping cart systems
+  - Payment gateway integration
+  - Inventory management
+  - Order processing
+  - Customer management
+
+☁️ Cloud Solutions
+• Infrastructure Setup
+  - AWS architecture
+  - Google Cloud Platform
+  - Microsoft Azure
+  - Hybrid cloud solutions
+  - Serverless architecture
+
+• Cloud Services
+  - Database management
+  - Storage solutions
+  - Computing resources
+  - Security implementation
+  - Scalability planning
+
+🔄 Technology Integration
+• System Integration
+  - API development
+  - Legacy system modernization
+  - Third-party integrations
+  - Data migration
+  - Process automation
+
+• Enterprise Solutions
+  - ERP systems
+  - CRM platforms
+  - Business intelligence
+  - Workflow automation
+  - Custom software
+
+Would you like to explore any of these services in detail?`,
+
+  pricing: `Our flexible pricing structure is designed to accommodate various project needs:
+
+💡 Starter Package: $5,000 - $15,000
+• Ideal for: Small businesses & startups
+• Features:
+  - Basic website/app development
+  - Essential features implementation
+  - Standard cloud setup
+  - Basic SEO optimization
+  - 3 months support
+  - Monthly performance reports
+• Timeline: 4-8 weeks
+• Payment: 50% upfront, 50% on completion
+
+🚀 Professional Package: $15,000 - $50,000
+• Ideal for: Growing businesses
+• Features:
+  - Advanced website/app development
+  - Full feature implementation
+  - Comprehensive cloud infrastructure
+  - Advanced SEO strategy
+  - 6 months support
+  - Weekly progress updates
+  - Performance optimization
+  - Security implementation
+• Timeline: 2-4 months
+• Payment: 40% upfront, 30% midway, 30% on completion
+
+🌟 Enterprise Package: $50,000+
+• Ideal for: Large organizations
+• Features:
+  - Full-scale digital transformation
+  - Custom development solutions
+  - Advanced cloud architecture
+  - Dedicated development team
+  - Priority 24/7 support
+  - Continuous optimization
+  - Regular security audits
+  - Comprehensive documentation
+• Timeline: Custom
+• Payment: Customized schedule
+
+📋 All packages include:
+• Project management
+• Quality assurance
+• Code documentation
+• Security implementation
+• Performance optimization
+• Post-launch support
+
+Would you like to schedule a consultation for a detailed quote based on your specific requirements?`,
+
+  app: `Our comprehensive App Development services cover:
+
+📱 Native App Development
+
+1. iOS Development
+   • Technologies
+     - Swift & SwiftUI
+     - iOS SDK expertise
+     - CoreData & CloudKit
+     - ARKit & CoreML
+   • Features
+     - Native UI components
+     - Hardware integration
+     - Push notifications
+     - In-app purchases
+   • Best Practices
+     - Apple guidelines compliance
+     - Performance optimization
+     - Security implementation
+     - App Store optimization
+
+2. Android Development
+   • Technologies
+     - Kotlin & Java
+     - Android SDK
+     - Jetpack Compose
+     - Material Design 3
+   • Features
+     - Native functionality
+     - Background services
+     - Custom widgets
+     - Deep linking
+   • Best Practices
+     - Google guidelines
+     - Battery optimization
+     - Security measures
+     - Play Store optimization
+
+🔄 Cross-Platform Development
+
+1. Technologies
+   • React Native
+     - Native performance
+     - Code reusability
+     - Hot reloading
+     - Native modules
+   • Flutter
+     - Beautiful UIs
+     - Native compilation
+     - Custom widgets
+     - Platform integration
+
+2. Features & Capabilities
+   • Core Features
+     - User authentication
+     - Push notifications
+     - Offline support
+     - Analytics integration
+     - Social integration
+     - Location services
+   • Advanced Features
+     - Real-time sync
+     - File handling
+     - Media processing
+     - Payment processing
+     - Chat functionality
+     - Maps integration
+
+3. Development Process
+   • Planning Phase
+     - Requirements analysis
+     - Architecture design
+     - UI/UX planning
+     - Technology selection
+   • Development Phase
+     - Agile methodology
+     - Sprint planning
+     - Regular updates
+     - Code reviews
+   • Testing Phase
+     - Unit testing
+     - Integration testing
+     - UI/UX testing
+     - Performance testing
+   • Deployment
+     - Store submission
+     - Version management
+     - Release planning
+     - Marketing support
+
+4. Ongoing Support
+   • Maintenance
+     - Bug fixes
+     - Performance updates
+     - Security patches
+     - Feature updates
+   • Monitoring
+     - Usage analytics
+     - Crash reporting
+     - Performance metrics
+     - User feedback
+
+Would you like to discuss your specific app development needs?`,
+
+  website: `Our Website Development services include:
+
+🎨 Frontend Development
+
+1. Modern Technologies
+   • React.js
+     - Component-based architecture
+     - Virtual DOM
+     - State management (Redux/Context)
+     - Custom hooks
+   • Vue.js
+     - Reactive components
+     - Vue Router
+     - Vuex state management
+     - Composition API
+   • Next.js/Nuxt.js
+     - Server-side rendering
+     - Static site generation
+     - API routes
+     - Image optimization
+
+2. UI/UX Design
+   • Responsive Design
+     - Mobile-first approach
+     - Fluid layouts
+     - Breakpoint optimization
+   • Performance
+     - Code splitting
+     - Lazy loading
+     - Asset optimization
+     - Caching strategies
+   • Accessibility
+     - WCAG compliance
+     - Screen reader support
+     - Keyboard navigation
+     - Color contrast
+
+🔧 Backend Development
+
+1. Technologies
+   • Node.js
+     - Express.js
+     - REST APIs
+     - GraphQL
+     - WebSocket
+   • Python
+     - Django
+     - FastAPI
+     - Data processing
+     - Machine learning
+   • Databases
+     - PostgreSQL
+     - MongoDB
+     - Redis
+     - Elasticsearch
+
+2. Features
+   • Authentication
+     - JWT
+     - OAuth
+     - Social login
+     - Role-based access
+   • Security
+     - HTTPS
+     - XSS protection
+     - CSRF protection
+     - Rate limiting
+   • Performance
+     - Caching
+     - Load balancing
+     - Database optimization
+     - API optimization
+
+🛍️ E-commerce Solutions
+
+1. Features
+   • Product Management
+     - Catalog system
+     - Inventory tracking
+     - Product variants
+     - Digital products
+   • Shopping Experience
+     - Cart management
+     - Wishlist
+     - Product search
+     - Recommendations
+   • Payment Processing
+     - Multiple gateways
+     - Subscription billing
+     - Refund handling
+     - Tax calculation
+   • Order Management
+     - Order tracking
+     - Shipping integration
+     - Return handling
+     - Invoice generation
+
+2. Additional Features
+   • Analytics
+     - Sales tracking
+     - User behavior
+     - Conversion rates
+     - ROI analysis
+   • Marketing Tools
+     - SEO optimization
+     - Email marketing
+     - Social media
+     - Discount system
+
+Would you like to discuss your website project requirements?`,
+
+  contact: `Here's how you can reach our expert team:
+
+👥 Development Team
+• Primary Contact
+  - Email: dev@techsolutions.com
+  - Phone: (555) 123-4567
+  - Response time: Within 2 hours
+• Technical Support
+  - Email: support@techsolutions.com
+  - Phone: (555) 234-5678
+  - Live Chat: 24/7 availability
+
+📅 Business Hours
+• Regular Hours
+  - Monday-Friday: 9AM-6PM EST
+  - Saturday: 10AM-4PM EST
+• Emergency Support
+  - 24/7 availability for critical issues
+  - Response time: Within 30 minutes
+  - Priority line: (555) 999-8888
+
+📍 Office Locations
+• Headquarters
+  - 123 Tech Avenue
+  - Innovation City, IC 10001
+  - Reception: (555) 345-6789
+• Development Center
+  - 456 Code Street
+  - Tech Valley, TV 20002
+  - Office: (555) 456-7890
+
+🤝 Partnership Inquiries
+• Business Development
+  - Email: partnerships@techsolutions.com
+  - Phone: (555) 567-8901
+  - Schedule: Monday-Friday, 9AM-5PM EST
+
+🔧 Technical Support Levels
+• Standard Support
+  - Business hours assistance
+  - Email & phone support
+  - 24-hour response time
+• Premium Support
+  - 24/7 availability
+  - Priority response
+  - Dedicated support team
+  - Monthly review calls
+
+How would you like to connect with our team?`,
+
+  consultation: `Let's schedule your consultation. Here's what we'll discuss:
+
+📋 Project Overview
+1. Business Information
+   • Company background
+   • Industry sector
+   • Target audience
+   • Current challenges
+   • Business goals
+
+2. Project Requirements
+   • Project type
+     - Web development
+     - Mobile app
+     - Cloud solutions
+     - System integration
+   • Technical specifications
+     - Platform preferences
+     - Feature requirements
+     - Integration needs
+     - Security requirements
+   • Design preferences
+     - Brand guidelines
+     - UI/UX requirements
+     - User flow
+     - Accessibility needs
+
+3. Timeline & Budget
+   • Project timeline
+     - Start date
+     - Milestones
+     - Launch date
+   • Budget considerations
+     - Available budget
+     - Payment schedule
+     - ROI expectations
+
+4. Technical Discussion
+   • Architecture planning
+   • Technology stack
+   • Scalability needs
+   • Security requirements
+   • Performance goals
+
+📅 Meeting Details
+• Available Slots
+  - Morning: 9AM-12PM EST
+  - Afternoon: 2PM-5PM EST
+  - Custom timing available
+• Meeting Format
+  - Video conference
+  - Phone call
+  - In-person (if local)
+• Duration: 60-90 minutes
+
+Would you like to schedule your consultation now? Please provide your preferred date and time, and I'll help you book it.`,
+
+  tech: `Our Technology Integration services provide comprehensive solutions:
+
+🔄 System Integration
+
+1. API Development & Integration
+   • RESTful APIs
+     - Custom API development
+     - API documentation
+     - Security implementation
+     - Version control
+   • GraphQL
+     - Schema design
+     - Query optimization
+     - Real-time subscriptions
+     - Type safety
+   • Microservices
+     - Service architecture
+     - Container orchestration
+     - Service discovery
+     - Load balancing
+
+2. Legacy System Modernization
+   • Analysis
+     - System assessment
+     - Risk evaluation
+     - Migration planning
+     - Cost analysis
+   • Implementation
+     - Gradual migration
+     - Data preservation
+     - System testing
+     - Performance optimization
+   • Maintenance
+     - System monitoring
+     - Performance tuning
+     - Security updates
+     - Documentation
+
+🔧 Enterprise Solutions
+
+1. ERP Integration
+   • Features
+     - Module integration
+     - Workflow automation
+     - Data synchronization
+     - Custom reporting
+   • Implementation
+     - Requirements analysis
+     - System configuration
+     - User training
+     - Support setup
+
+2. CRM Integration
+   • Capabilities
+     - Customer management
+     - Sales automation
+     - Marketing integration
+     - Analytics
+   • Features
+     - Data migration
+     - Custom workflows
+     - API integration
+     - Mobile access
+
+3. Payment Systems
+   • Gateway Integration
+     - Multiple providers
+     - Security compliance
+     - Transaction monitoring
+     - Reconciliation
+   • Features
+     - Automated processing
+     - Fraud detection
+     - Reporting tools
+     - Multi-currency support
+
+🔒 Security & Compliance
+
+1. Security Implementation
+   • Authentication
+     - Multi-factor auth
+     - SSO integration
+     - Access control
+     - Session management
+   • Data Protection
+     - Encryption
+     - Secure storage
+     - Data masking
+     - Audit logging
+
+2. Compliance
+   • Standards
+     - GDPR
+     - HIPAA
+     - PCI DSS
+     - SOC 2
+   • Implementation
+     - Policy development
+     - Control implementation
+     - Audit support
+     - Training
+
+What specific integration needs would you like to discuss?`,
+
+  cloud: `Our Cloud Solutions provide comprehensive services:
+
+☁️ Cloud Infrastructure
+
+1. Platform Options
+   • Amazon Web Services (AWS)
+     - EC2 instances
+     - S3 storage
+     - RDS databases
+     - Lambda functions
+     - CloudFront CDN
+   • Google Cloud Platform (GCP)
+     - Compute Engine
+     - Cloud Storage
+     - Cloud SQL
+     - Cloud Functions
+     - Cloud CDN
+   • Microsoft Azure
+     - Virtual Machines
+     - Blob Storage
+     - Azure SQL
+     - Functions
+     - CDN
+
+2. Architecture Design
+   • Infrastructure Planning
+     - Resource allocation
+     - Network design
+     - Security architecture
+     - Disaster recovery
+   • Scalability
+     - Auto-scaling
+     - Load balancing
+     - Performance optimization
+     - Cost management
+
+🔄 Migration Services
+
+1. Assessment
+   • Current Infrastructure
+     - System analysis
+     - Dependency mapping
+     - Performance baseline
+     - Cost analysis
+   • Migration Planning
+     - Strategy development
+     - Risk assessment
+     - Timeline planning
+     - Resource allocation
+
+2. Implementation
+   • Data Migration
+     - Data transfer
+     - Database migration
+     - Storage optimization
+     - Data validation
+   • Application Migration
+     - Code adaptation
+     - Testing
+     - Performance tuning
+     - Documentation
+
+🔒 Security & Compliance
+
+1. Security Implementation
+   • Access Control
+     - IAM policies
+     - Network security
+     - Encryption
+     - Key management
+   • Monitoring
+     - Security alerts
+     - Audit logging
+     - Threat detection
+     - Incident response
+
+2. Compliance Management
+   • Standards
+     - ISO 27001
+     - SOC 2
+     - HIPAA
+     - GDPR
+   • Implementation
+     - Policy development
+     - Control implementation
+     - Audit support
+     - Regular reviews
+
+⚡ Performance Optimization
+
+1. Monitoring & Analysis
+   • Performance Metrics
+     - Resource utilization
+     - Response times
+     - Error rates
+     - Cost analysis
+   • Optimization
+     - Resource allocation
+     - Caching strategies
+     - CDN implementation
+     - Database tuning
+
+2. Cost Management
+   • Analysis
+     - Usage patterns
+     - Cost breakdown
+     - Resource optimization
+     - ROI assessment
+   • Implementation
+     - Resource scheduling
+     - Reserved instances
+     - Auto-scaling
+     - Waste elimination
+
+What specific cloud solutions are you interested in exploring?`,
+
+  faq: `Frequently Asked Questions about our services:
+
+⏱️ Development Timelines
+
+1. Web Development
+   • Simple website: 4-6 weeks
+     - Basic pages
+     - Contact forms
+     - Basic SEO
+     - Mobile responsive
+   • Complex web app: 3-6 months
+     - Custom features
+     - User authentication
+     - Database integration
+     - Advanced security
+   • E-commerce site: 2-4 months
+     - Product catalog
+     - Payment integration
+     - Order management
+     - Inventory system
+
+2. Mobile Development
+   • Simple app: 2-3 months
+     - Basic features
+     - Single platform
+     - Standard UI
+     - Basic API
+   • Complex app: 4-6 months
+     - Advanced features
+     - Multiple platforms
+     - Custom UI/UX
+     - Complex backend
+   • Enterprise app: 6+ months
+     - Full feature set
+     - Multiple integrations
+     - Advanced security
+     - Scalable architecture
+
+🔧 Technology Stack
+
+1. Frontend
+   • Web Technologies
+     - React.js
+     - Vue.js
+     - Next.js
+     - TypeScript
+   • Mobile Technologies
+     - React Native
+     - Flutter
+     - Swift
+     - Kotlin
+
+2. Backend
+   • Languages
+     - Node.js
+     - Python
+     - Java
+     - Go
+   • Databases
+     - PostgreSQL
+     - MongoDB
+     - Redis
+     - Elasticsearch
+
+📋 Project Process
+
+1. Planning Phase
+   • Requirements gathering
+   • Architecture design
+   • Technology selection
+   • Timeline planning
+
+2. Development Phase
+   • Sprint planning
+   • Regular updates
+   • Code reviews
+   • Quality assurance
+
+3. Testing Phase
+   • Unit testing
+   • Integration testing
+   • User acceptance
+   • Performance testing
+
+4. Deployment
+   • Server setup
+   • Application deployment
+   • Monitoring setup
+   • Documentation
+
+🛠️ Support & Maintenance
+
+1. Standard Support
+   • Bug fixes
+   • Security updates
+   • Performance monitoring
+   • Regular backups
+
+2. Premium Support
+   • 24/7 availability
+   • Priority response
+   • Dedicated team
+   • Monthly reviews
+
+What other questions can I answer for you?`
 };
 
-const Chatbot: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+function App() {
   const [messages, setMessages] = useState<Message[]>([]);
-  const [inputText, setInputText] = useState('');
-  const [showOptions, setShowOptions] = useState(false);
+  const [inputValue, setInputValue] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
   const [currentStep, setCurrentStep] = useState<'email' | 'phone' | 'name' | 'chat'>('email');
+  const [showOptions, setShowOptions] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -58,123 +824,101 @@ const Chatbot: React.FC = () => {
     return phone.match(/^\+?[\d\s-]{10,}$/);
   };
 
-  const handleUserInfoInput = () => {
-    if (!inputText.trim()) return;
+  const handleSend = () => {
+    if (!inputValue.trim()) return;
 
-    if (currentStep === 'email' && !validateEmail(inputText)) {
-      // If it's not a valid email, show the greeting message and clear the input
-      const userMessage: Message = {
-        text: inputText,
-        sender: 'user',
-        timestamp: new Date()
-      };
-      const botMessage: Message = {
-        text: "👋 Hi! I'm your digital marketing assistant. To get started, please enter your email address so I can send you helpful resources.",
+    if (currentStep === 'email') {
+      handleEmailStep();
+    } else if (currentStep === 'phone') {
+      handlePhoneStep();
+    } else if (currentStep === 'name') {
+      handleNameStep();
+    } else {
+      handleChatStep();
+    }
+
+    setInputValue('');
+  };
+
+  const handleEmailStep = () => {
+    const userMessage: Message = {
+      text: inputValue,
+      sender: 'user',
+      timestamp: new Date()
+    };
+
+    if (!validateEmail(inputValue)) {
+      setMessages(prev => [...prev, userMessage, {
+        text: "Please enter a valid email address so I can send you helpful resources and documentation.",
         sender: 'bot',
         timestamp: new Date()
-      };
-      setMessages([userMessage, botMessage]);
-      setInputText('');
+      }]);
       return;
     }
 
-    const userMessage: Message = {
-      text: inputText,
-      sender: 'user',
+    setUserInfo(prev => ({ ...prev, email: inputValue } as UserInfo));
+    setCurrentStep('phone');
+    setMessages(prev => [...prev, userMessage, {
+      text: "Thanks! Now, please enter your phone number so we can reach you for project discussions.",
+      sender: 'bot',
       timestamp: new Date()
-    };
-    setMessages(prev => [...prev, userMessage]);
-
-    switch (currentStep) {
-      case 'email':
-        setUserInfo(prev => ({ ...prev, email: inputText } as UserInfo));
-        setCurrentStep('phone');
-        setMessages(prev => [
-          ...prev,
-          { text: "Thanks for providing your email! Now, please enter your phone number so we can reach you if needed.", sender: 'bot', timestamp: new Date() }
-        ]);
-        break;
-
-      case 'phone':
-        if (!validatePhone(inputText)) {
-          const botMessage: Message = {
-            text: "Please enter a valid phone number (minimum 10 digits). You can include spaces or hyphens if you'd like.",
-            sender: 'bot',
-            timestamp: new Date()
-          };
-          setMessages(prev => [...prev, botMessage]);
-          return;
-        }
-        setUserInfo(prev => ({ ...prev, phone: inputText } as UserInfo));
-        setCurrentStep('name');
-        setMessages(prev => [
-          ...prev,
-          { text: "Great! Finally, what's your name? This helps me personalize our conversation.", sender: 'bot', timestamp: new Date() }
-        ]);
-        break;
-
-      case 'name':
-        setUserInfo(prev => ({ ...prev, name: inputText } as UserInfo));
-        setCurrentStep('chat');
-        setShowOptions(true);
-        setMessages(prev => [
-          ...prev,
-          { 
-            text: `Welcome, ${inputText}! I'm here to help you with your digital marketing needs. Feel free to ask about our services, pricing, or select from the options below. What would you like to know more about?`,
-            sender: 'bot',
-            timestamp: new Date()
-          }
-        ]);
-        break;
-
-      case 'chat':
-        handleChatInput();
-        break;
-    }
-
-    setInputText('');
+    }]);
   };
 
-  const handleChatInput = () => {
+  const handlePhoneStep = () => {
     const userMessage: Message = {
-      text: inputText,
+      text: inputValue,
+      sender: 'user',
+      timestamp: new Date()
+    };
+
+    if (!validatePhone(inputValue)) {
+      setMessages(prev => [...prev, userMessage, {
+        text: "Please enter a valid phone number (minimum 10 digits). This helps us provide better support for your project.",
+        sender: 'bot',
+        timestamp: new Date()
+      }]);
+      return;
+    }
+
+    setUserInfo(prev => ({ ...prev, phone: inputValue } as UserInfo));
+    setCurrentStep('name');
+    setMessages(prev => [...prev, userMessage, {
+      text: "Perfect! Finally, what's your name? This helps me personalize our conversation about your project needs.",
+      sender: 'bot',
+      timestamp: new Date()
+    }]);
+  };
+
+  const handleNameStep = () => {
+    const userMessage: Message = {
+      text: inputValue,
+      sender: 'user',
+      timestamp: new Date()
+    };
+
+    setUserInfo(prev => ({ ...prev, name: inputValue } as UserInfo));
+    setCurrentStep('chat');
+    setShowOptions(true);
+    setMessages(prev => [...prev, userMessage, {
+      text: `Welcome, ${inputValue}! I'm here to help you with your technology needs. Whether you're looking to develop an app, website, or need cloud solutions, I'm here to guide you. What would you like to know more about?`,
+      sender: 'bot',
+      timestamp: new Date()
+    }]);
+  };
+
+  const handleChatStep = () => {
+    const userMessage: Message = {
+      text: inputValue,
       sender: 'user',
       timestamp: new Date()
     };
 
     setMessages(prev => [...prev, userMessage]);
-    setInputText('');
     setShowOptions(false);
 
     setTimeout(() => {
-      let botResponse = "I'll help you with that. ";
-      let showOptionsAfter = false;
-      
-      const lowercaseInput = inputText.toLowerCase();
-      
-      if (lowercaseInput.includes('service')) {
-        botResponse = predefinedResponses.services;
-      } else if (lowercaseInput.includes('price') || lowercaseInput.includes('cost') || lowercaseInput.includes('package')) {
-        botResponse = predefinedResponses.pricing;
-      } else if (lowercaseInput.includes('contact') || lowercaseInput.includes('reach') || lowercaseInput.includes('support')) {
-        botResponse = predefinedResponses.contact;
-      } else if (lowercaseInput.includes('consultation') || lowercaseInput.includes('meet') || lowercaseInput.includes('appointment')) {
-        botResponse = predefinedResponses.consultation;
-      } else if (lowercaseInput.includes('seo') || lowercaseInput.includes('search engine')) {
-        botResponse = predefinedResponses.seo;
-      } else if (lowercaseInput.includes('social') || lowercaseInput.includes('facebook') || lowercaseInput.includes('instagram')) {
-        botResponse = predefinedResponses.social;
-      } else if (lowercaseInput.includes('content') || lowercaseInput.includes('blog') || lowercaseInput.includes('article')) {
-        botResponse = predefinedResponses.content;
-      } else if (lowercaseInput.includes('analytics') || lowercaseInput.includes('report') || lowercaseInput.includes('tracking')) {
-        botResponse = predefinedResponses.analytics;
-      } else if (lowercaseInput.includes('faq') || lowercaseInput.includes('question')) {
-        botResponse = predefinedResponses.faq;
-      } else {
-        botResponse = "I understand you're interested in learning more. To better assist you, would you like to know about our services, pricing, or schedule a consultation? You can also ask about specific topics like SEO, social media, content marketing, or analytics.";
-        showOptionsAfter = true;
-      }
-
+      let botResponse = getBotResponse(inputValue.toLowerCase());
       const botMessage: Message = {
         text: botResponse,
         sender: 'bot',
@@ -182,36 +926,44 @@ const Chatbot: React.FC = () => {
       };
 
       setMessages(prev => [...prev, botMessage]);
-      if (showOptionsAfter) {
-        setShowOptions(true);
-      }
-    }, 800);
+      setShowOptions(botResponse.includes("Would you like to know more about"));
+    }, 1000);
   };
 
-  const toggleChatbot = () => {
-    setIsOpen(!isOpen);
-    if (!isOpen) {
-      setMessages([{
-        text: "👋 Hi! I'm your digital marketing assistant. To get started, please enter your email address so I can send you helpful resources.",
-        sender: 'bot',
-        timestamp: new Date()
-      }]);
-      setCurrentStep('email');
-      setUserInfo(null);
-      setShowOptions(false);
+  const getBotResponse = (input: string): string => {
+    if (input.includes('app') || input.includes('mobile') || input.includes('ios') || input.includes('android')) {
+      return predefinedResponses.app;
+    } else if (input.includes('website') || input.includes('web') || input.includes('site')) {
+      return predefinedResponses.website;
+    } else if (input.includes('tech') || input.includes('integration')) {
+      return predefinedResponses.tech;
+    } else if (input.includes('cloud') || input.includes('aws') || input.includes('azure')) {
+      return predefinedResponses.cloud;
+    } else if (input.includes('price') || input.includes('cost') || input.includes('budget')) {
+      return predefinedResponses.pricing;
+    } else if (input.includes('contact') || input.includes('support') || input.includes('help')) {
+      return predefinedResponses.contact;
+    } else if (input.includes('consult') || input.includes('meet') || input.includes('discuss')) {
+      return predefinedResponses.consultation;
+    } else if (input.includes('faq') || input.includes('question')) {
+      return predefinedResponses.faq;
+    } else if (input.includes('service')) {
+      return predefinedResponses.services;
     }
+    
+    return "I can help you with app development, website creation, cloud solutions, and more. What specific service are you interested in? You can ask about our services, pricing, or schedule a consultation.";
   };
 
   const handleQuickOption = (option: string) => {
     const optionResponses: { [key: string]: string } = {
-      'Services': predefinedResponses.services,
-      'Pricing': predefinedResponses.pricing,
-      'Contact': predefinedResponses.contact,
+      'App Development': predefinedResponses.app,
+      'Website Development': predefinedResponses.website,
+      'Cloud Solutions': predefinedResponses.cloud,
+      'Technology Integration': predefinedResponses.tech,
+      'View Services': predefinedResponses.services,
+      'Get Pricing': predefinedResponses.pricing,
       'Schedule Consultation': predefinedResponses.consultation,
-      'SEO Services': predefinedResponses.seo,
-      'Social Media': predefinedResponses.social,
-      'Content Marketing': predefinedResponses.content,
-      'Analytics': predefinedResponses.analytics
+      'Contact Support': predefinedResponses.contact
     };
 
     setMessages(prev => [
@@ -222,44 +974,51 @@ const Chatbot: React.FC = () => {
     setShowOptions(false);
   };
 
-  const getInputPlaceholder = () => {
-    switch (currentStep) {
-      case 'email':
-        return 'Enter your email address...';
-      case 'phone':
-        return 'Enter your phone number...';
-      case 'name':
-        return 'Enter your name...';
-      default:
-        return 'Type your message...';
+  const toggleChat = () => {
+    if (!isOpen) {
+      setMessages([{
+        text: "👋 Hi! I'm your technology solutions assistant. To get started, please enter your email address so I can send you helpful resources and documentation.",
+        sender: 'bot',
+        timestamp: new Date()
+      }]);
+      setCurrentStep('email');
+      setUserInfo(null);
+      setShowOptions(false);
     }
+    setIsOpen(!isOpen);
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 sm:bottom-8 sm:right-8">
-      <button
-        onClick={toggleChatbot}
-        className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-3 sm:p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2"
-      >
-        {isOpen ? <X size={18} /> : <MessageCircle size={18} />}
-        {!isOpen && <span className="hidden sm:inline">Chat with us</span>}
-      </button>
+    <div className="relative min-h-screen bg-gray-100">
+      {!isOpen && (
+        <button
+          onClick={toggleChat}
+          className="fixed bottom-4 right-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 z-50"
+        >
+          <MessageCircle className="w-6 h-6" />
+          <span className="hidden sm:inline">Chat with us</span>
+        </button>
+      )}
 
       {isOpen && (
-        <div className="absolute bottom-16 right-0 w-[calc(100vw-2rem)] sm:w-96 bg-white rounded-lg shadow-2xl border border-gray-200 overflow-hidden max-h-[80vh] sm:max-h-[600px]">
-          {/* Header */}
-          <div className="bg-gradient-to-r from-blue-600 to-blue-800 p-3 sm:p-4 text-white">
+        <div className="fixed bottom-4 right-4 w-[320px] md:w-96 h-[600px] bg-white rounded-lg shadow-xl flex flex-col z-50">
+          <div className="p-4 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-t-lg flex justify-between items-center">
             <div className="flex items-center gap-2">
-              <Bot size={20} />
+              <Code className="w-6 h-6" />
               <div>
-                <h2 className="font-bold text-base sm:text-lg">Marketing Assistant</h2>
-                <p className="text-xs sm:text-sm opacity-90">Online & Ready to Help</p>
+                <h2 className="font-bold text-lg">Tech Solutions</h2>
+                <p className="text-sm opacity-90">Development Expert</p>
               </div>
             </div>
+            <button
+              onClick={toggleChat}
+              className="text-white hover:text-gray-200 transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
           </div>
 
-          {/* Messages */}
-          <div className="h-[50vh] sm:h-96 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4 bg-gray-50">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
             {messages.map((message, index) => (
               <div
                 key={index}
@@ -268,18 +1027,18 @@ const Chatbot: React.FC = () => {
                 }`}
               >
                 <div
-                  className={`max-w-[85%] p-3 sm:p-4 rounded-lg shadow-md ${
+                  className={`max-w-[85%] p-3 rounded-lg shadow-md ${
                     message.sender === 'user'
                       ? 'bg-blue-600 text-white'
-                      : 'bg-white text-gray-800 border border-gray-200'
+                      : 'bg-white text-gray-800'
                   }`}
                 >
-                  <p className="whitespace-pre-line text-sm leading-relaxed">
-                    {message.text}
-                  </p>
-                  <p className={`text-xs mt-2 ${
-                    message.sender === 'user' ? 'text-blue-100' : 'text-gray-500'
-                  }`}>
+                  <p className="whitespace-pre-wrap text-sm leading-relaxed">{message.text}</p>
+                  <p
+                    className={`text-xs mt-2 ${
+                      message.sender === 'user' ? 'text-blue-100' : 'text-gray-500'
+                    }`}
+                  >
                     {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </p>
                 </div>
@@ -288,49 +1047,55 @@ const Chatbot: React.FC = () => {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Quick Options */}
           {showOptions && currentStep === 'chat' && (
-            <div className="p-3 sm:p-4 bg-white border-t border-gray-200">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div className="p-3 border-t border-gray-200 bg-white">
+              <div className="grid grid-cols-2 gap-2">
                 {[
-                  'Services',
-                  'Pricing',
-                  'Contact',
-                  'Schedule Consultation',
-                  'SEO Services',
-                  'Social Media',
-                  'Content Marketing',
-                  'Analytics'
-                ].map((option) => (
+                  ['App Development', <Smartphone key="app" className="w-4 h-4" />],
+                  ['Website Development', <Globe key="web" className="w-4 h-4" />],
+                  ['Cloud Solutions', <Cloud key="cloud" className="w-4 h-4" />],
+                  ['Technology Integration', <Code key="tech" className="w-4 h-4" />],
+                  ['View Services', <Building2 key="services" className="w-4 h-4" />],
+                  ['Get Pricing', <Search key="pricing" className="w-4 h-4" />],
+                  ['Schedule Consultation', <MessageCircle key="consult" className="w-4 h-4" />],
+                  ['Contact Support', <Bot key="support" className="w-4 h-4" />]
+                ].map(([option, icon]) => (
                   <button
-                    key={option}
-                    onClick={() => handleQuickOption(option)}
-                    className="bg-gray-50 p-3 rounded-lg border border-gray-200 hover:bg-gray-100 transition-colors flex items-center justify-between text-sm font-medium text-gray-700"
+                    key={option as string}
+                    onClick={() => handleQuickOption(option as string)}
+                    className="bg-gray-50 p-2 rounded-lg border border-gray-200 hover:bg-gray-100 transition-colors flex items-center gap-2 text-xs font-medium text-gray-700"
                   >
-                    <span>{option}</span>
-                    <ArrowRight size={14} className="text-gray-400" />
+                    {icon}
+                    <span className="truncate">{option}</span>
                   </button>
                 ))}
               </div>
             </div>
           )}
 
-          {/* Input */}
-          <div className="p-3 sm:p-4 border-t border-gray-200 bg-white">
+          <div className="p-3 border-t border-gray-200 bg-white rounded-b-lg">
             <div className="flex gap-2">
               <input
                 type="text"
-                value={inputText}
-                onChange={(e) => setInputText(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleUserInfoInput()}
-                placeholder={getInputPlaceholder()}
-                className="flex-1 p-2 sm:p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800 text-sm sm:text-base"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+                placeholder={
+                  currentStep === 'email'
+                    ? 'Enter your email...'
+                    : currentStep === 'phone'
+                    ? 'Enter your phone number...'
+                    : currentStep === 'name'
+                    ? 'Enter your name...'
+                    : 'Type your message...'
+                }
+                className="flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800 text-sm"
               />
               <button
-                onClick={handleUserInfoInput}
-                className="bg-blue-600 text-white p-2 sm:p-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center"
+                onClick={handleSend}
+                className="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center"
               >
-                <Send size={18} />
+                <Send className="w-5 h-5" />
               </button>
             </div>
           </div>
@@ -338,6 +1103,6 @@ const Chatbot: React.FC = () => {
       )}
     </div>
   );
-};
+}
 
-export default Chatbot;
+export default App;
