@@ -5,16 +5,16 @@ import { ArrowRight } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
   const services = [
+    'Technology Integrations',
+    'Product Delivery',
     'SEO Optimization',
-    'Social Media Marketing',
-    'PPC Campaigns',
-    'Content Strategy',
+    'Business Development',
     'Web Design',
-    'Brand Development'
+    'Cloud Solutions'
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-10 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900 dark:from-dark-950 dark:via-dark-900 dark:to-dark-950">
         {/* Animated gradient overlay */}
@@ -34,8 +34,8 @@ const HeroSection: React.FC = () => {
             className="text-center lg:text-left"
           >
             <h1 className="heading-xl text-white mb-6">
-              Transform Your Brand with{' '}
-              <span className="gradient-text">Digital Excellence</span>
+            Your Gateway to {' '}
+              <span className="gradient-text">Digital Evolution</span>
             </h1>
             
             <div className="relative h-[30px] overflow-hidden mb-8">
@@ -49,8 +49,8 @@ const HeroSection: React.FC = () => {
             </div>
             
             <p className="text-dark-100 text-lg mb-8 max-w-xl mx-auto lg:mx-0">
-              We help businesses grow through innovative digital marketing strategies, data-driven campaigns, and creative solutions that deliver measurable results.
-            </p>
+            We help businesses thrive through innovative strategies, data-driven campaigns, and creative solutions that deliver measurable results.
+</p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link

@@ -93,16 +93,7 @@ const ContactPage: React.FC = () => {
                   <label htmlFor="budget" className="block text-sm font-medium text-dark-600 dark:text-dark-300 mb-1">
                     Monthly Budget
                   </label>
-                  <select
-                    id="budget"
-                    className="w-full px-4 py-3 rounded-md border border-gray-300 dark:border-dark-600 bg-white dark:bg-dark-700 focus:outline-none focus:ring-2 focus:ring-primary-500"
-                  >
-                    <option value="">Select budget range</option>
-                    <option value="50000-100000">₹50,000 - ₹1,00,000</option>
-                    <option value="100000-300000">₹1,00,000 - ₹3,00,000</option>
-                    <option value="300000-500000">₹3,00,000 - ₹5,00,000</option>
-                    <option value="500000+">₹5,00,000+</option>
-                  </select>
+                  
                 </div>
 
                 <div>
@@ -192,23 +183,6 @@ const ContactPage: React.FC = () => {
               </div>
 
               <div className="bg-white dark:bg-dark-800 rounded-xl shadow-xl p-8">
-                <h2 className="text-2xl font-bold mb-6">Connect With Us</h2>
-                <div className="flex items-start mb-6">
-                  <div className="w-10 h-10 rounded-full bg-primary-50 dark:bg-dark-700 flex items-center justify-center mr-4">
-                    <MessageSquare className="w-5 h-5 text-primary-600 dark:text-primary-400" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-dark-500 dark:text-dark-400 mb-1">Live Chat</p>
-                    <p className="text-dark-800 dark:text-white">
-                      Chat with our team in real-time for immediate assistance.
-                    </p>
-                    <button className="mt-2 btn btn-outline text-primary-600 dark:text-primary-400 px-4 py-2 rounded-md inline-flex items-center">
-                      Start Chat
-                      <MessageSquare className="ml-2 w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-
                 <div className="border-t border-gray-200 dark:border-dark-700 pt-6">
                   <h3 className="text-lg font-bold mb-4">Follow Us</h3>
                   <div className="flex space-x-4">

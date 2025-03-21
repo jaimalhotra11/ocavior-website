@@ -48,8 +48,8 @@ const services = [
   },
   {
     id: 'social',
-    title: 'Social Media Marketing',
-    description: 'Engage your audience and build brand loyalty with strategic social media marketing campaigns.',
+    title: 'Web and App Development',
+    description: 'Engage your audience and build brand loyalty with website and application development.',
     icon: Share2,
     color: 'from-yellow-500 to-yellow-600',
     link: '/services/social-media'
@@ -93,9 +93,9 @@ const ServicesSection: React.FC = () => {
     <section className="section bg-white dark:bg-dark-900" id="services">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="heading-lg mb-4">Our Digital Marketing <span className="gradient-text">Services</span></h2>
+          <h2 className="heading-lg mb-4">Our Growth Solutions <span className="gradient-text">Services</span></h2>
           <p className="text-dark-600 dark:text-dark-200 text-lg">
-            We offer a comprehensive suite of digital marketing services to help your business grow and succeed online.
+          We offer a comprehensive suite of services to help your business grow and succeed online.
           </p>
         </div>
 

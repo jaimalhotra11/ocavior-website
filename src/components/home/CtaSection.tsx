@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ArrowRight, Mail, Phone, MessageSquare } from 'lucide-react';
+import { ArrowRight, Mail, Phone } from 'lucide-react';
 
 const CtaSection: React.FC = () => {
   const { ref, inView } = useInView({
@@ -11,13 +11,11 @@ const CtaSection: React.FC = () => {
   });
 
   return (
-    <section className="section relative overflow-hidden">
+    <section className="relative overflow-hidden py-20">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-900 to-secondary-900">
-        <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMSI+PHBhdGggZD0iTTM2IDM0djZoNnYtNmgtNnptMC0zMHY2aDZ2LTZoLTZ6TTYgNHY2aDZ2LTZINnptMCAzMHY2aDZ2LTZINnoiLz48L2c+PC9nPjwvc3ZnPg==')]"></div>
-      </div>
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-900 to-secondary-900" />
 
-      <div className="container relative z-10">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
             ref={ref}
@@ -26,7 +24,7 @@ const CtaSection: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-white"
           >
-            <h2 className="heading-lg mb-6">Ready to Transform Your <span className="text-primary-300">Digital Presence?</span></h2>
+            <h2 className="text-4xl font-bold mb-6">Ready to Transform Your <span className="text-primary-300">Digital Presence?</span></h2>
             <p className="text-lg mb-8 text-gray-200">
               Let's discuss how our digital marketing expertise can help your business grow. Schedule a free consultation with our team today.
             </p>
@@ -55,10 +53,6 @@ const CtaSection: React.FC = () => {
                   </a>
                 </div>
               </div>
-
-             
-                
-              
             </div>
           </motion.div>
 
@@ -66,7 +60,7 @@ const CtaSection: React.FC = () => {
             initial={{ opacity: 0, x: 20 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-black rounded-xl shadow-xl p-8"
+            className="bg-black/80 backdrop-blur-sm rounded-xl shadow-xl p-8"
           >
             <h3 className="text-2xl font-bold mb-6 text-white">Get a Free Consultation</h3>
             <form className="space-y-4">
@@ -123,7 +117,7 @@ const CtaSection: React.FC = () => {
                   <option value="product-delivery">Product Delivery</option>
                   <option value="seo">SEO Optimization</option>
                   <option value="business-dev">Business Development</option>
-                  <option value="social">Social Media Marketing</option>
+                  <option value="social">Web and App development</option>
                   <option value="cloud">Cloud Solutions</option>
                 </select>
               </div>
@@ -132,16 +126,7 @@ const CtaSection: React.FC = () => {
                 <label htmlFor="budget" className="block text-sm font-medium text-gray-300 mb-1">
                   Monthly Budget
                 </label>
-                <select
-                  id="budget"
-                  className="w-full px-4 py-3 rounded-md border border-gray-700 bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-primary-500"
-                >
-                  <option value="">Select budget range</option>
-                  <option value="50000-100000">₹50,000 - ₹1,00,000</option>
-                  <option value="100000-300000">₹1,00,000 - ₹3,00,000</option>
-                  <option value="300000-500000">₹3,00,000 - ₹5,00,000</option>
-                  <option value="500000+">₹5,00,000+</option>
-                </select>
+                
               </div>
 
               <div>
