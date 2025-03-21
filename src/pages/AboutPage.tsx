@@ -82,7 +82,7 @@ const AboutPage: React.FC = () => {
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="heading-xl text-white mb-6">About <span className="gradient-text">Ocavior</span></h1>
             <p className="text-xl text-gray-300 mb-8">
-              We're a team of digital marketing experts passionate about helping businesses grow through innovative strategies and data-driven solutions.
+              We're a team of digital solutions experts passionate about helping businesses grow through innovative strategies and data-driven solutions.
             </p>
           </div>
         </div>
@@ -95,7 +95,7 @@ const AboutPage: React.FC = () => {
             <div>
               <h2 className="heading-lg mb-6">Who We Are</h2>
               <p className="text-dark-600 dark:text-dark-200 text-lg mb-6">
-                Founded in 2015, Ocavior has grown from a small startup to a leading digital marketing agency serving clients worldwide. Our journey has been driven by a simple philosophy: deliver measurable results that help our clients succeed.
+                Founded in 2015, Ocavior has grown from a small startup to a leading digital solutions agency serving clients worldwide. Our journey has been driven by a simple philosophy: deliver measurable results that help our clients succeed.
               </p>
               <p className="text-dark-600 dark:text-dark-200 text-lg mb-6">
                 We combine technical expertise with creative thinking to develop marketing strategies that not only look good but perform exceptionally well. Our team of specialists across SEO, PPC, social media, content, and web development work collaboratively to deliver integrated solutions.
@@ -126,7 +126,7 @@ const AboutPage: React.FC = () => {
               </div>
               <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
               <p className="text-dark-600 dark:text-dark-300">
-                To empower businesses with innovative digital marketing strategies that drive growth, build brand authority, and deliver measurable ROI. We're committed to transparency, continuous learning, and exceeding client expectations.
+                To empower businesses with innovative digital solution strategies that drive growth, build brand authority, and deliver measurable ROI. We're committed to transparency, continuous learning, and exceeding client expectations.
               </p>
             </div>
             <div className="bg-white dark:bg-dark-700 rounded-xl p-8 shadow-md">
@@ -135,7 +135,7 @@ const AboutPage: React.FC = () => {
               </div>
               <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
               <p className="text-dark-600 dark:text-dark-300">
-                To be the most trusted digital marketing partner for businesses worldwide, known for our innovative approach, exceptional results, and commitment to client success. We aim to set new standards in the industry through continuous innovation and excellence.
+                To be the most trusted digital solution partner for businesses worldwide, known for our innovative approach, exceptional results, and commitment to client success. We aim to set new standards in the industry through continuous innovation and excellence.
               </p>
             </div>
           </div>

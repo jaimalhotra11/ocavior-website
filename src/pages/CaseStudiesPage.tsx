@@ -215,13 +215,7 @@ const CaseStudiesPage: React.FC = () => {
                     </ul>
                   </div>
                   
-                  <Link 
-                    to={`/case-studies/${filteredCaseStudies[0].slug}`}
-                    className="btn btn-primary px-6 py-3 rounded-md inline-flex items-center"
-                  >
-                    View Full Case Study
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Link>
+                  
                 </div>
               </div>
             </motion.div>

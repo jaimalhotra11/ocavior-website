@@ -158,12 +158,7 @@ const ServicesPage: React.FC = () => {
                     ))}
                   </ul>
                   <div className="mt-6">
-                    <Link
-                      to={service.link}
-                      className="btn btn-primary w-full py-3 rounded-md inline-flex items-center justify-center"
-                    >
-                      Learn More <ArrowRight className="ml-2 w-4 h-4" />
-                    </Link>
+                    
                   </div>
                 </div>
               </motion.div>

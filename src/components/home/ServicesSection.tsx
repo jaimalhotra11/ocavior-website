@@ -117,13 +117,7 @@ const ServicesSection: React.FC = () => {
               </div>
               <h3 className="text-xl font-bold mb-2">{service.title}</h3>
               <p className="text-dark-600 dark:text-dark-300 mb-4">{service.description}</p>
-              <Link 
-                to={service.link} 
-                className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium group-hover:text-primary-700 dark:group-hover:text-primary-300"
-              >
-                Learn more
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-              </Link>
+              
             </motion.div>
           ))}
         </motion.div>
