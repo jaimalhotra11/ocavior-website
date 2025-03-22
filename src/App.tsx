@@ -17,6 +17,7 @@ import TermsOfServicePage from './pages/TermsOfServicePage';
 import SitemapPage from './pages/SitemapPage';
 import CareersPage from './pages/CareersPage';
 import ServiceDetailPage from './pages/ServiceDetailPage';
+import ComingSoonPage from './pages/ComingSoonPage';
 
 function App() {
   return (
@@ -35,7 +36,8 @@ function App() {
           <Route path="/sitemap" element={<SitemapPage />} />
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/apply" element={<ApplyNowPage />} />
-          
+          <Route path="/social-marketing" element={<ComingSoonPage />} />
+          <Route path="/digital-marketing" element={<ComingSoonPage />} />
           <Route path="/admin" element={<AdminPanel />} />
           <Route path="/chatbot" element={<ChatbotPage />} />
           <Route path="/blog/:blogId" element={<BlogPage />} />

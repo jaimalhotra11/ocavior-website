@@ -1,77 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Zap, Target, Lightbulb, Users, Award } from 'lucide-react';
+import { Zap, Target, Lightbulb, Users, Code, Globe, Cpu } from 'lucide-react';
 
 const AboutPage: React.FC = () => {
-  const { ref, inView } = useInView({
+  const {} = useInView({
     triggerOnce: true,
     threshold: 0.1
   });
-
-  const teamMembers = [
-    {
-      id: 1,
-      name: 'Alex Johnson',
-      position: 'CEO & Founder',
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80',
-      bio: 'With over 15 years of experience in digital marketing, Alex founded Ocavior with a vision to transform how businesses approach digital growth.'
-    },
-    {
-      id: 2,
-      name: 'Sarah Williams',
-      position: 'Head of SEO',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80',
-      bio: 'Sarah is an SEO expert with a proven track record of helping businesses achieve top rankings and drive organic traffic growth.'
-    },
-    {
-      id: 3,
-      name: 'Michael Chen',
-      position: 'Creative Director',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80',
-      bio: 'Michael leads our creative team, bringing innovative design thinking and brand strategy to every client project.'
-    },
-    {
-      id: 4,
-      name: 'Emily Rodriguez',
-      position: 'Social Media Strategist',
-      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80',
-      bio: 'Emily specializes in creating engaging social media campaigns that build community and drive meaningful engagement.'
-    }
-  ];
-
-  const milestones = [
-    {
-      year: '2015',
-      title: 'Founded',
-      description: 'Ocavior was founded with a mission to deliver data-driven digital marketing solutions.'
-    },
-    {
-      year: '2017',
-      title: 'First Major Client',
-      description: 'Partnered with a Fortune 500 company, delivering a 300% ROI on their digital campaigns.'
-    },
-    {
-      year: '2019',
-      title: 'Team Expansion',
-      description: 'Grew to a team of 25 specialists across SEO, PPC, content, and design.'
-    },
-    {
-      year: '2020',
-      title: 'Industry Recognition',
-      description: 'Won "Digital Agency of the Year" at the Marketing Excellence Awards.'
-    },
-    {
-      year: '2022',
-      title: 'Global Reach',
-      description: 'Expanded operations to serve clients across North America, Europe, and Asia.'
-    },
-    {
-      year: '2024',
-      title: 'Innovation Hub',
-      description: 'Launched our digital marketing innovation lab focused on AI and automation.'
-    }
-  ];
 
   return (
     <main>
@@ -142,141 +78,50 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Development Impact */}
       <section className="section bg-white dark:bg-dark-900">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="heading-lg mb-4">Meet Our <span className="gradient-text">Team</span></h2>
+            <h2 className="heading-lg mb-4">Our Development <span className="gradient-text">Impact</span></h2>
             <p className="text-dark-600 dark:text-dark-200 text-lg">
-              Our diverse team of experts brings together years of experience and a passion for digital excellence.
-            </p>
-          </div>
-
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.6 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={member.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white dark:bg-dark-700 rounded-xl overflow-hidden shadow-md group"
-              >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-64 object-cover object-center group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark-900 to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                  <p className="text-primary-600 dark:text-primary-400 font-medium mb-4">{member.position}</p>
-                  <p className="text-dark-600 dark:text-dark-300 text-sm">{member.bio}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <div className="text-center mt-12">
-            <a href="/careers" className="btn btn-primary px-6 py-3 rounded-md inline-flex items-center">
-              Join Our Team
-              <Users className="ml-2 w-5 h-5" />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Milestones */}
-      <section className="section bg-gray-50 dark:bg-dark-800">
-        <div className="container">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="heading-lg mb-4">Our <span className="gradient-text">Journey</span></h2>
-            <p className="text-dark-600 dark:text-dark-200 text-lg">
-              Key milestones that have shaped our growth and success over the years.
-            </p>
-          </div>
-
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary-500 to-secondary-500 rounded-full"></div>
-
-            <div className="relative z-10">
-              {milestones.map((milestone, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`flex items-center mb-12 ${
-                    index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
-                  }`}
-                >
-                  <div className={`w-1/2 ${index % 2 === 0 ? 'pr-12 text-right' : 'pl-12'}`}>
-                    <div className={`bg-white dark:bg-dark-700 rounded-xl p-6 shadow-md ${
-                      index % 2 === 0 ? 'ml-auto' : 'mr-auto'
-                    }`}>
-                      <span className="text-sm font-bold text-primary-600 dark:text-primary-400 block mb-2">
-                        {milestone.year}
-                      </span>
-                      <h3 className="text-xl font-bold mb-2">{milestone.title}</h3>
-                      <p className="text-dark-600 dark:text-dark-300">
-                        {milestone.description}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="w-10 h-10 rounded-full bg-white dark:bg-dark-700 border-4 border-primary-500 z-10 flex items-center justify-center">
-                    <div className="w-3 h-3 rounded-full bg-primary-500"></div>
-                  </div>
-                  <div className="w-1/2"></div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Awards & Recognition */}
-      <section className="section bg-white dark:bg-dark-900">
-        <div className="container">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="heading-lg mb-4">Awards & <span className="gradient-text">Recognition</span></h2>
-            <p className="text-dark-600 dark:text-dark-200 text-lg">
-              Our work has been recognized by leading industry organizations.
+              Numbers that reflect our commitment to excellence in digital solutions.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white dark:bg-dark-700 rounded-xl p-6 shadow-md text-center">
-              <div className="w-16 h-16 mx-auto mb-4">
-                <Award className="w-full h-full text-yellow-500" />
+            <div className="bg-gradient-to-br from-primary-50 to-primary-100 dark:from-dark-700 dark:to-dark-600 rounded-xl p-8 shadow-lg text-center transform hover:scale-105 transition-transform duration-300">
+              <div className="w-16 h-16 mx-auto mb-6 bg-white dark:bg-dark-800 rounded-full flex items-center justify-center shadow-md">
+                <Globe className="w-8 h-8 text-primary-600 dark:text-primary-400" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Digital Agency of the Year</h3>
-              <p className="text-dark-500 dark:text-dark-400 mb-2">Marketing Excellence Awards</p>
-              <p className="text-dark-600 dark:text-dark-300">2022</p>
+              <h3 className="text-4xl font-bold mb-2 text-primary-700 dark:text-primary-400">200+</h3>
+              <p className="text-xl font-semibold mb-2">Websites Launched</p>
+              <p className="text-dark-500 dark:text-dark-300">From simple landing pages to complex web applications</p>
             </div>
-            <div className="bg-white dark:bg-dark-700 rounded-xl p-6 shadow-md text-center">
-              <div className="w-16 h-16 mx-auto mb-4">
-                <Award className="w-full h-full text-yellow-500" />
+
+            <div className="bg-gradient-to-br from-secondary-50 to-secondary-100 dark:from-dark-700 dark:to-dark-600 rounded-xl p-8 shadow-lg text-center transform hover:scale-105 transition-transform duration-300">
+              <div className="w-16 h-16 mx-auto mb-6 bg-white dark:bg-dark-800 rounded-full flex items-center justify-center shadow-md">
+                <Cpu className="w-8 h-8 text-secondary-600 dark:text-secondary-400" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Best SEO Campaign</h3>
-              <p className="text-dark-500 dark:text-dark-400 mb-2">Search Marketing Awards</p>
-              <p className="text-dark-600 dark:text-dark-300">2021</p>
+              <h3 className="text-4xl font-bold mb-2 text-secondary-700 dark:text-secondary-400">50+</h3>
+              <p className="text-xl font-semibold mb-2">Mobile Apps</p>
+              <p className="text-dark-500 dark:text-dark-300">Cross-platform applications delivering unique experiences</p>
             </div>
-            <div className="bg-white dark:bg-dark-700 rounded-xl p-6 shadow-md text-center">
-              <div className="w-16 h-16 mx-auto mb-4">
-                <Award className="w-full h-full text-yellow-500" />
+
+            <div className="bg-gradient-to-br from-tertiary-50 to-tertiary-100 dark:from-dark-700 dark:to-dark-600 rounded-xl p-8 shadow-lg text-center transform hover:scale-105 transition-transform duration-300">
+              <div className="w-16 h-16 mx-auto mb-6 bg-white dark:bg-dark-800 rounded-full flex items-center justify-center shadow-md">
+                <Code className="w-8 h-8 text-tertiary-600 dark:text-tertiary-400" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Innovation in Social Media</h3>
-              <p className="text-dark-500 dark:text-dark-400 mb-2">Digital Innovation Awards</p>
-              <p className="text-dark-600 dark:text-dark-300">2020</p>
+              <h3 className="text-4xl font-bold mb-2 text-tertiary-700 dark:text-tertiary-400">1M+</h3>
+              <p className="text-xl font-semibold mb-2">Lines of Code</p>
+              <p className="text-dark-500 dark:text-dark-300">Crafted with precision and best practices</p>
             </div>
+          </div>
+
+          <div className="mt-16 text-center">
+            <p className="text-lg text-dark-600 dark:text-dark-300">
+              Every project is a testament to our commitment to quality and innovation. 
+              Our solutions have helped businesses across 30+ countries achieve their digital goals.
+            </p>
           </div>
         </div>
       </section>

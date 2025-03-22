@@ -130,32 +130,7 @@ const WhyChooseUs: React.FC = () => {
         </motion.div>
 
         {/* Testimonial */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 bg-white dark:bg-dark-700 rounded-xl shadow-md p-8 max-w-4xl mx-auto relative overflow-hidden"
-        >
-          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary-500 to-secondary-500"></div>
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
-              <img 
-                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" 
-                alt="Sarah Johnson, CEO of TechStart" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div>
-              <p className="text-lg italic text-dark-600 dark:text-dark-200 mb-4">
-                "Working with Ocavior transformed our online presence completely. Their strategic approach to digital marketing helped us increase our leads by 200% in just 3 months. The team is responsive, creative, and truly cares about our success."
-              </p>
-              <div>
-                <p className="font-bold">Sarah Johnson</p>
-                <p className="text-dark-500 dark:text-dark-300 text-sm">CEO, TechStart</p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+       
       </div>
     </section>
   );

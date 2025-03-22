@@ -4,6 +4,7 @@ import ServicesSection from '../components/home/ServicesSection';
 import WhyChooseUs from '../components/home/WhyChooseUs';
 import TestimonialsSection from '../components/home/TestimonialsSection';
 import ClientsSection from '../components/home/ClientsSection';
+import MarketingServices from '../components/home/MarketingServices';
 import CtaSection from '../components/home/CtaSection';
 
 const HomePage: React.FC = () => {
@@ -14,6 +15,7 @@ const HomePage: React.FC = () => {
       <WhyChooseUs />
       <TestimonialsSection />
       <ClientsSection />
+      <MarketingServices />
       <CtaSection />
     </main>
   );
