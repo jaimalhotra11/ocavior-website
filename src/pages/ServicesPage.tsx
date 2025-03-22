@@ -79,21 +79,21 @@ const services = [
     ]
   },
   {
-    id: 'social',
-    title: 'Social Media Marketing',
-    description: 'Engage your audience and build brand loyalty with strategic social media marketing campaigns.',
+    id: 'web-app',
+    title: 'Web and App Development',
+    description: 'Create seamless and user-friendly web and mobile experiences that engage your audience and drive business growth.',
     icon: Share2,
     color: 'from-yellow-500 to-yellow-600',
-    link: '/services/social-media',
+    link: '/services/web-app-development',
     features: [
-      'Social Media Strategy Development',
-      'Content Creation & Curation',
-      'Community Management',
-      'Paid Social Advertising',
-      'Influencer Marketing',
-      'Social Media Analytics'
+      'Custom Web Development',
+      'Mobile App Development (iOS & Android)',
+      'UI/UX Design',
+      'E-commerce Solutions',
+      'Responsive Design',
+      'Web and Mobile App Maintenance'
     ]
-  },
+  },  
   {
     id: 'cloud',
     title: 'Cloud Solutions',
