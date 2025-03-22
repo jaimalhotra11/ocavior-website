@@ -3,37 +3,21 @@ import { Link } from 'react-router-dom';
 import { 
   Home, 
   Info, 
-  Briefcase, 
   Phone, 
   FileText, 
   Shield, 
   Map, 
-  Users, 
-  Code, 
-  Package, 
-  Search, 
-  Share2, 
-  Cloud 
+  Users
 } from 'lucide-react';
 
 const SitemapPage: React.FC = () => {
   const mainPages = [
     { name: 'Home', path: '/', icon: Home },
     { name: 'About Us', path: '/about', icon: Info },
-    { name: 'Services', path: '/services', icon: Briefcase },
     { name: 'Case Studies', path: '/case-studies', icon: FileText },
     { name: 'Blog', path: '/blog', icon: FileText },
     { name: 'Contact', path: '/contact', icon: Phone },
     { name: 'Careers', path: '/careers', icon: Users },
-  ];
-
-  const servicePages = [
-    { name: 'Technology Integrations', path: '/services/technology-integrations', icon: Code },
-    { name: 'Product Delivery', path: '/services/product-delivery', icon: Package },
-    { name: 'SEO Optimization', path: '/services/seo', icon: Search },
-    { name: 'Business Development', path: '/services/business-development', icon: Briefcase },
-    { name: 'Social Media Marketing', path: '/services/social-media', icon: Share2 },
-    { name: 'Cloud Solutions', path: '/services/cloud-solutions', icon: Cloud },
   ];
 
   const legalPages = [
@@ -61,27 +45,12 @@ const SitemapPage: React.FC = () => {
       <section className="section bg-white dark:bg-dark-900">
         <div className="container">
           <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Main Pages */}
               <div className="bg-white dark:bg-dark-800 rounded-xl shadow-md p-6">
                 <h2 className="text-2xl font-bold mb-6 pb-4 border-b border-gray-200 dark:border-dark-700">Main Pages</h2>
                 <ul className="space-y-4">
                   {mainPages.map((page) => (
-                    <li key={page.path}>
-                      <Link to={page.path} className="flex items-center text-dark-800 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
-                        <page.icon className="w-5 h-5 mr-3 text-primary-600 dark:text-primary-400" />
-                        <span>{page.name}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Service Pages */}
-              <div className="bg-white dark:bg-dark-800 rounded-xl shadow-md p-6">
-                <h2 className="text-2xl font-bold mb-6 pb-4 border-b border-gray-200 dark:border-dark-700">Services</h2>
-                <ul className="space-y-4">
-                  {servicePages.map((page) => (
                     <li key={page.path}>
                       <Link to={page.path} className="flex items-center text-dark-800 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
                         <page.icon className="w-5 h-5 mr-3 text-primary-600 dark:text-primary-400" />

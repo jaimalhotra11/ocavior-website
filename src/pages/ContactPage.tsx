@@ -90,13 +90,6 @@ const ContactPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="budget" className="block text-sm font-medium text-dark-600 dark:text-dark-300 mb-1">
-                    Monthly Budget
-                  </label>
-                  
-                </div>
-
-                <div>
                   <label htmlFor="message" className="block text-sm font-medium text-dark-600 dark:text-dark-300 mb-1">
                     Tell us about your project
                   </label>
@@ -135,7 +128,7 @@ const ContactPage: React.FC = () => {
                     <div>
                       <p className="text-sm text-dark-500 dark:text-dark-400 mb-1">Email Us</p>
                       <a href="mailto:hello@ocavior.com" className="text-dark-800 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
-                        hello@ocavior.com
+                        contact@ocavior.com
                       </a>
                     </div>
                   </div>
@@ -147,7 +140,7 @@ const ContactPage: React.FC = () => {
                     <div>
                       <p className="text-sm text-dark-500 dark:text-dark-400 mb-1">Call Us</p>
                       <a href="tel:+919876543210" className="text-dark-800 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
-                        +91 9876 543 210
+                        +91 8960314841
                       </a>
                     </div>
                   </div>
@@ -159,9 +152,8 @@ const ContactPage: React.FC = () => {
                     <div>
                       <p className="text-sm text-dark-500 dark:text-dark-400 mb-1">Visit Us</p>
                       <p className="text-dark-800 dark:text-white">
-                        123 Tech Park, Whitefield<br />
-                        Bangalore, Karnataka 560066<br />
-                        India
+                      133/11/p-1, Transport Nagar,Kanpur, Uttar Pradesh 208023 
+
                       </p>
                     </div>
                   </div>
